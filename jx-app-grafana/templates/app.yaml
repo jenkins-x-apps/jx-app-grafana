@@ -5,7 +5,5 @@ metadata:
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
-{{- if .Values.exposedServices }}
   exposedServices:
-{{ toYaml .Values.exposedServices | indent 4 }}
-{{- end }}
+  - {{ template "fullname" . }}
